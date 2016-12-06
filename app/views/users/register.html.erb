@@ -1,0 +1,14 @@
+<h1>Register:</h1>
+
+<%= form_for @user do |f| %>
+	<h3><%= f.label :name %></h3>
+	<p><%= f.text_field :name %></p>
+
+	<h3><%= f.label :user_password %></h3>
+	<p><%= f.text_field :user_password %></p>
+
+	<p><%= f.submit "Register" %></p>
+<% end %>
+
+<p>Allready a member?</p>
+<a href="/login">Login</a>

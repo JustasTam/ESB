@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
-  resources :pages
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
+
+  get '/register', to: 'users#register'
+  get '/login', to: 'users#login'
+  get '/home', to: 'homes#home'
+
+  resources :users do
+  	post :check_logins, :on => :collection
+  end
+  root 'pages#index'
 end
