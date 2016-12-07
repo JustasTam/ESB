@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	helper_method :update_user_template
+	helper_method :update_user_theme
 
 	def register
 		@user = User.new
@@ -53,7 +54,13 @@ class UsersController < ApplicationController
 
 	def update_user_template(template_id)
 		if current_user
-			User.find(current_user["id"]).update_attribute :template, template_id
+			User.find(current_user["id"]).update_attribute :template_id, template_id
+		end
+	end
+
+	def update_user_theme(theme_id)
+		if current_user
+			User.find(current_user["id"]).update_attribute :theme_id, theme_id
 		end
 	end
 

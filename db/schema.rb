@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20161206195427) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "user_password"
-    t.string   "template"
-    t.string   "theme"
+    t.string   "template_id"
+    t.string   "theme_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -3,8 +3,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
     	t.string :name
     	t.string :user_password
-      t.string :template
-      t.string :theme
+      t.string :template_id
+      t.string :theme_id
 
       t.timestamps
     end

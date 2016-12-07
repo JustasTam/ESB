@@ -2,4 +2,50 @@
 	<h1>Choose theme:</h1>
 	<% session[:template] = request.original_url.to_s.last %>
 	<% update_user_template(session[:template]) %>
+
+	<ul class="list-inline">
+		<li>
+			<div class="col-lg-6 col-sm-6">
+		    <a href="/theme_nr1" class="portfolio-box">
+		      <img src="bootstrap/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+		    </a>
+		</div>
+		</li>
+		<li>
+			<div class="col-lg-6 col-sm-6">
+		    <a href="/theme_nr2" class="portfolio-box">
+		      <img src="bootstrap/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+		    </a>
+		</div>
+		</li>
+		<li>
+			<div class="col-lg-6 col-sm-6">
+				<a href="/theme_nr3" class="portfolio-box">
+				  <img src="bootstrap/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+				</a>
+				</div>
+		</li>
+		<li>
+			<div class="col-lg-6 col-sm-6">
+				<a href="/theme_nr4" class="portfolio-box">
+				  <img src="bootstrap/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+				</a>
+				</div>
+		</li>
+		<li>
+			<div class="col-lg-6 col-sm-6">
+				<a href="/theme_nr5" class="portfolio-box">
+				  <img src="bootstrap/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+				</a>
+				</div>
+		</li>
+		<li>
+			<div class="col-lg-6 col-sm-6">
+				<a href="/theme_nr6" class="portfolio-box">
+				  <img src="bootstrap/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+				</a>
+				</div>
+		</li>
+
+	</ul>
 <% end %>
