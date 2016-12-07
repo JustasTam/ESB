@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/register', to: 'users#register'
   get '/login', to: 'users#login'
+  get '/logout', to: 'users#logout'
   get '/choose_template', to: 'users#choose_template'
 
   get '/template_nr1', to: 'users#templates'
