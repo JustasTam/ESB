@@ -1,51 +1,79 @@
-<% if loged_in? %>
+<style type="text/css">
+	.ul_inline {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	}
+</style>
+
+<div style="
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../bootstrap/header.jpg');
+  text-align: center;
+  color: white;
+">
+	<div style="clear: both;">&nbsp;</div>
+	<div style="clear: both;">&nbsp;</div>
+	<div style="clear: both;">&nbsp;</div>
+	<% if loged_in? %>
+	<h3>Loging in 2/2</h3>
 	<h1>Choose theme:</h1>
 	<% session[:template] = request.original_url.to_s.last %>
 	<% update_user_template(session[:template]) %>
-
-	<ul class="list-inline">
+	<div style="clear: both;">&nbsp;</div>
+	
+		<ul class="ul_inline">
 		<li>
-			<div class="col-lg-6 col-sm-6">
+			<div class="col-lg-4 col-sm-6">
 		    <a href="/theme_nr1" class="portfolio-box">
 		      <img src="bootstrap/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
 		    </a>
 		</div>
 		</li>
 		<li>
-			<div class="col-lg-6 col-sm-6">
+			<div class="col-lg-4 col-sm-6">
 		    <a href="/theme_nr2" class="portfolio-box">
 		      <img src="bootstrap/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
 		    </a>
 		</div>
 		</li>
 		<li>
-			<div class="col-lg-6 col-sm-6">
+			<div class="col-lg-4 col-sm-6">
 				<a href="/theme_nr3" class="portfolio-box">
 				  <img src="bootstrap/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
 				</a>
 				</div>
 		</li>
 		<li>
-			<div class="col-lg-6 col-sm-6">
+			<div class="col-lg-4 col-sm-6">
 				<a href="/theme_nr4" class="portfolio-box">
 				  <img src="bootstrap/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
 				</a>
 				</div>
 		</li>
 		<li>
-			<div class="col-lg-6 col-sm-6">
+			<div class="col-lg-4 col-sm-6">
 				<a href="/theme_nr5" class="portfolio-box">
 				  <img src="bootstrap/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
 				</a>
 				</div>
 		</li>
 		<li>
-			<div class="col-lg-6 col-sm-6">
+			<div class="col-lg-4 col-sm-6">
 				<a href="/theme_nr6" class="portfolio-box">
 				  <img src="bootstrap/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
 				</a>
 				</div>
 		</li>
 
-	</ul>
-<% end %>
+		</ul>
+
+	<% end %>
+</div>

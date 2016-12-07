@@ -1,15 +1,48 @@
-<h1>Log in:</h1>
+<style type="text/css">
+	#name {
+		border: none;
+	}
+	#user_password {
+		border: none;
+	}
+</style>
 
-<% if session[:error].present? %>
-	<p style="color:red"><%= session[:error] %></p>
-<% end %>
+<div style="
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../bootstrap/header.jpg');
+  text-align: center;
+  color: white;
+">
+	<div style="clear: both;">&nbsp;</div>
+	<div style="clear: both;">&nbsp;</div>
+	<div style="clear: both;">&nbsp;</div>
+	<h1>Log in with existing user</h1>
 
-<%= form_tag validate_login_users_path do %>
-		<h3>Name</h3>
-    <%= text_field_tag :name %>		
-    <h3>Password</h3>
-    <%= text_field_tag :user_password %>
-    <br>
-    <h3></h3>
-    <%= submit_tag "Send input" %>
-<% end %>
+	<% if session[:error].present? %>
+		<p style="color:red"><%= session[:error] %></p>
+	<% end %>
+	
+	<center>
+		<div style="width: 20%">
+			<%= form_tag validate_login_users_path do %>
+				<h3><strong>Name</strong></h3>
+		    <div class="form-control"> <%= text_field_tag :name %> </div>
+		    <h3><strong>Password<strong></h3>
+		    <div class="form-control"> <%= text_field_tag :user_password %> </div>
+		    <br>
+		    <h3></h3>
+		    <%= submit_tag "Log in!", class: 'btn btn-info' %>
+			<% end %>
+			
+			<div style="clear: both;">&nbsp;</div>
+			<p>Dont have an account? <a href="/register">Register</a></p>
+		</div>
+	</center>
+</div>
