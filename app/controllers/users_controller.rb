@@ -33,14 +33,12 @@ class UsersController < ApplicationController
 
 		if check_if_registered.present?
 			if check_if_pasword_is_correct.present?
-				@current_user = User.where(name: params[:name], user_password: params[:user_password]).first
+				session[:current_user] = User.where(name: params[:name], user_password: params[:user_password]).first
 
-				if @current_user
-					session[:current_user] = @current_user
-					flash[:notice] = "Welcome!"
-					redirect_to '/choose_template'
+				if have_template_and_theme?
+					redirect_to '/home'
 				else
-					false
+					redirect_to '/choose_template'
 				end
 			else
 				session[:error] = 'Password is incorect!'
@@ -62,6 +60,10 @@ class UsersController < ApplicationController
 		if current_user
 			User.find(current_user["id"]).update_attribute :theme_id, theme_id
 		end
+	end
+
+	def have_template_and_theme?
+		current_user[:template_id].present? && current_user[:theme_id].present?
 	end
 
 	private
