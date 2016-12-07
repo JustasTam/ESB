@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   	post :validate_login, :on => :collection
   end
   get '/esb', to: 'pages#index'
+  root 'pages#index'
 end
