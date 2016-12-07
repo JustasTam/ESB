@@ -16,11 +16,24 @@ class UsersController < ApplicationController
 		redirect_to '/login'
 	end
 
-	def check_logins
-		if User.where(name: params[:name], user_password: params[:user_password]).first
-			redirect_to '/home'
+	def validate_login
+		@current_user = User.where(name: params[:name], user_password: params[:user_password]).first
+
+		if @current_user
+			session[:current_user] = @current_user
+			flash[:notice] = "Welcome!"
+			redirect_to '/choose_template'
 		else
 			false
+		end
+	end
+
+	def choose_template
+	end
+
+	def template_nr1
+		if current_user
+			
 		end
 	end
 

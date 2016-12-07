@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 
   get '/register', to: 'users#register'
   get '/login', to: 'users#login'
-  get '/home', to: 'homes#home'
+  get '/choose_template', to: 'users#choose_template'
+
+  # templates
+  get '/template_nr1', to: 'users#template_nr1'
 
   resources :users do
-  	post :check_logins, :on => :collection
+  	post :validate_login, :on => :collection
   end
   root 'pages#index'
 end
