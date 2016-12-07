@@ -1,5 +1,9 @@
 <h1>Log in:</h1>
 
+<% if session[:error].present? %>
+	<p style="color:red"><%= session[:error] %></p>
+<% end %>
+
 <%= form_tag validate_login_users_path do %>
 		<h3>Name</h3>
     <%= text_field_tag :name %>		

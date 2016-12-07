@@ -6,26 +6,48 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
+		session[:error] = nil
+		check_if_not_a_duplicate = User.where(name: params[:user][:name]).present?
 
-		if @user.save
-			flash[:notice] = "You have succesfully registered!"
+		if check_if_not_a_duplicate.blank?
+			@user = User.new(user_params)
+
+			if @user.save
+				flash[:notice] = "You have succesfully registered!"
+				redirect_to '/login'
+			else
+				flash[:error] = "Ups! Something is not wright!?"
+				redirect_to '/register'
+			end
 		else
-			flash[:error] = "Ups! Something is not wright!?"
+			session[:error] = 'Sorry, but this username is allready taken.'
+			redirect_to '/register'
 		end
-
-		redirect_to '/login'
 	end
 
 	def validate_login
-		@current_user = User.where(name: params[:name], user_password: params[:user_password]).first
+		session[:error] = nil
+		check_if_registered = User.where(name: params[:name]).present?
+		check_if_pasword_is_correct = User.where(name: params[:name], user_password: params[:user_password]).present?
 
-		if @current_user
-			session[:current_user] = @current_user
-			flash[:notice] = "Welcome!"
-			redirect_to '/choose_template'
+		if check_if_registered.present?
+			if check_if_pasword_is_correct.present?
+				@current_user = User.where(name: params[:name], user_password: params[:user_password]).first
+
+				if @current_user
+					session[:current_user] = @current_user
+					flash[:notice] = "Welcome!"
+					redirect_to '/choose_template'
+				else
+					false
+				end
+			else
+				session[:error] = 'Password is incorect!'
+				redirect_to '/login'
+			end
 		else
-			false
+			session[:error] = 'Sorry, but there is no such user.'
+			redirect_to '/login'
 		end
 	end
 

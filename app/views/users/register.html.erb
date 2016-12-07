@@ -1,5 +1,9 @@
 <h1>Register:</h1>
 
+<% if session[:error].present? %>
+	<p style="color:red"><%= session[:error] %></p>
+<% end %>
+
 <%= form_for @user do |f| %>
 	<h3><%= f.label :name %></h3>
 	<p><%= f.text_field :name %></p>
