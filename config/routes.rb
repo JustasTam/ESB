@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get '/choose_template', to: 'users#choose_template'
 
   # templates
-  get '/template_nr1', to: 'users#template_nr1'
+  get '/template_nr1', to: 'users#templates'
+  get '/template_nr2', to: 'users#templates'
+  get '/template_nr3', to: 'users#templates'
+
 
   resources :users do
   	post :validate_login, :on => :collection

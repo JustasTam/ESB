@@ -1,0 +1,5 @@
+<% if loged_in? %>
+	<h1>Choose theme:</h1>
+	<% session[:template] = request.original_url.to_s.last %>
+	<% update_user_template(session[:template]) %>
+<% end %>
