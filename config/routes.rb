@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   get '/home', to: 'home#index'
 
+  
+
+  get '/shop/theme1', to: 'template1#theme1'
+
   resources :users do
   	post :validate_login, :on => :collection
   end
